@@ -1,0 +1,55 @@
+<!-- booked.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings | FlexiBook</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="container nav-wrap">
+            <a class="brand" href="/">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+                </svg>
+                FlexiBook
+            </a>
+            <nav class="nav-links">
+                <a href="/" class="nav-item">Dashboard</a>
+                <a href="/slots.html" class="nav-item">Available Slots</a>
+                <a href="/booked.html" class="nav-item active">My Bookings</a>
+
+                <div class="user-profile">
+                    <div class="avatar">U</div>
+                    <div class="user-dropdown glass">
+                        <a href="#" class="dropdown-item logout" id="logoutBtn">Sign Out</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container page-section">
+        <div class="page-title-row" style="margin-top: 40px; margin-bottom: 0;">
+            <div>
+                <h1>My Bookings</h1>
+                <p style="margin-top: 8px;">Review and manage all your confirmed schedule.</p>
+            </div>
+        </div>
+
+
+        <section id="bookingsList" class="booking-grid">
+            <!-- Populated via script.js -->
+        </section>
+    </main>
+
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

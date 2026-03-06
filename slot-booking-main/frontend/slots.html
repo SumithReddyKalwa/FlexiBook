@@ -1,0 +1,108 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | FlexiBook</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="container nav-wrap">
+            <a class="brand" href="/">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+                </svg>
+                FlexiBook
+            </a>
+            <nav class="nav-links">
+                <a href="/" class="nav-item active">Dashboard</a>
+                <a href="/slots.html" class="nav-item">Available Slots</a>
+                <a href="/booked.html" class="nav-item">My Bookings</a>
+
+                <div class="user-profile">
+                    <div class="avatar">
+                        <span id="navUserInital">U</span>
+                    </div>
+                    <div class="user-dropdown glass">
+                        <a href="#" class="dropdown-item">Profile Settings</a>
+                        <a href="#" class="dropdown-item logout" id="logoutBtn">Sign Out</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container page-section">
+        <div class="page-title-row" style="margin-top: 40px; margin-bottom: 0;">
+            <div>
+                <h1>Available Slots</h1>
+                <p style="margin-top: 8px;">Find the perfect time and secure your booking easily.</p>
+            </div>
+        </div>
+
+        <div class="filters-bar glass" style="padding: 16px; border-radius: var(--radius-md);">
+            <input type="date" class="input-field" aria-label="Filter by date">
+            <select class="input-field" aria-label="Filter by time">
+                <option value="">Any Time</option>
+                <option value="morning">Morning</option>
+                <option value="afternoon">Afternoon</option>
+            </select>
+            <label class="filter-toggle">
+                <input type="checkbox" checked>
+                Show only available
+            </label>
+        </div>
+
+        <section id="slotsGrid" class="slot-grid">
+            <!-- Populated via script.js -->
+        </section>
+    </main>
+
+    <!-- Confirmation Modal structure ready to be targeted by JS -->
+    <div class="modal-overlay" id="bookingModal">
+        <div class="modal-content glass">
+            <div class="modal-header">
+                <h2>Confirm Booking</h2>
+                <p style="font-size: 14px; color: var(--text-secondary);">Are you sure you want to book this slot? This
+                    action will block the slot for others.</p>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary"
+                    onclick="document.getElementById('bookingModal').classList.remove('active')">Cancel</button>
+                <button class="btn" id="confirmBookBtn" style="min-width: 100px;">
+                    <span class="spinner"></span>
+                    <span>Confirm</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+    <script>
+        // Modal logic simulation if it's not currently in script.js
+        window.showBookingModal = function () {
+            document.getElementById('bookingModal').classList.add('active');
+        }
+        document.getElementById('confirmBookBtn').addEventListener('click', function (e) {
+            this.classList.add('loading');
+            setTimeout(() => {
+                this.classList.remove('loading');
+                document.getElementById('bookingModal').classList.remove('active');
+                // show toast
+                const toastBox = document.createElement('div');
+                toastBox.className = 'toast-container';
+                toastBox.innerHTML = `<div class="toast"><svg width="20" height="20" fill="none" stroke="var(--success)" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg><span>Booking confirmed successfully</span></div>`;
+                document.body.appendChild(toastBox);
+                setTimeout(() => toastBox.remove(), 3000);
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>

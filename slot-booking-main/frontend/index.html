@@ -1,0 +1,120 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | FlexiBook</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="container nav-wrap">
+            <a class="brand" href="/">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+                </svg>
+                FlexiBook
+            </a>
+            <nav class="nav-links">
+                <a href="/" class="nav-item active">Dashboard</a>
+                <a href="/slots.html" class="nav-item">Available Slots</a>
+                <a href="/booked.html" class="nav-item">My Bookings</a>
+
+                <div class="user-profile">
+                    <div class="avatar">
+                        <span id="navUserInital">U</span>
+                    </div>
+                    <div class="user-dropdown glass">
+                        <a href="#" class="dropdown-item">Profile Settings</a>
+                        <a href="#" class="dropdown-item logout" id="logoutBtn">Sign Out</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="dashboard-grid">
+            <div class="main-content">
+                <div class="hero-dashboard glass">
+                    <div class="hero-bg"></div>
+                    <div class="hero-content">
+                        <h1>Welcome back, <span id="currentUserName" style="color:var(--primary);">User</span></h1>
+                        <p>Here is an overview of your bookings and upcoming available slots. Manage everything from one
+                            place.</p>
+                        <a href="/slots.html" class="btn">Open Slots</a>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card glass">
+                        <div class="icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="label">Today's Booking</div>
+                        <div class="value">1</div>
+                    </div>
+                    <div class="stat-card glass">
+                        <div class="icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div class="label">Upcoming Bookings</div>
+                        <div class="value">3</div>
+                    </div>
+                    <div class="stat-card glass">
+                        <div class="icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div class="label">Available Slots Today</div>
+                        <div class="value">12</div>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="widget-section">
+                <div class="widget-card glass" style="min-height: 280px;">
+                    <div class="widget-header">
+                        <h3>Calendar Widget</h3>
+                    </div>
+                    <div class="empty-state" style="padding: 30px 10px; border:none;">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                        <p style="font-size: 13px;">Upcoming events will appear here.</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+    <script src="/js/script.js"></script>
+    <script>
+        setTimeout(() => {
+            const nameEl = document.getElementById('currentUserName');
+            if (nameEl && nameEl.innerText) {
+                document.getElementById('navUserInital').innerText = nameEl.innerText.charAt(0).toUpperCase();
+            }
+        }, 500);
+    </script>
+</body>
+
+</html>
