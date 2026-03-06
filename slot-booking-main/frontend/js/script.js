@@ -1,5 +1,5 @@
 const AUTH_KEY = "slotBookingUser";
-const PUBLIC_PAGES = ["/login.html", "/register.html"];
+const PUBLIC_PAGES = ["/login.html", "/register.html", "/login", "/register"];
 
 function escapeHtml(text) {
     const div = document.createElement("div");

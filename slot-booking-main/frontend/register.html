@@ -1,49 +1,48 @@
+<!-- register.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register | Slot Booking</title>
+    <title>Register | FlexiBook</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<body class="auth-body">
-    <main class="auth-wrap">
-        <div class="auth-brand">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-            </svg>
+
+<body class="auth-page">
+    <div class="auth-card">
+        <div class="auth-header">
+            <h1>Create an account</h1>
+            <p>Start booking slots effortlessly.</p>
         </div>
-        <section class="auth-card">
-            <div class="auth-header">
-                <h1>Create an account</h1>
-                <p>Start booking slots effortlessly.</p>
+
+        <form id="registerForm" class="auth-form form">
+            <div class="input-group">
+                <label for="registerName">Full Name</label>
+                <input id="registerName" type="text" required placeholder="Jane Doe">
             </div>
-            
-            <form id="registerForm" class="form">
-                <div class="input-group">
-                    <label for="registerName">Full Name</label>
-                    <input id="registerName" type="text" required placeholder="Jane Doe">
-                </div>
 
-                <div class="input-group">
-                    <label for="registerEmail">Email</label>
-                    <input id="registerEmail" type="email" required placeholder="you@example.com">
-                </div>
-
-                <div class="input-group">
-                    <label for="registerPassword">Password</label>
-                    <input id="registerPassword" type="password" minlength="6" required placeholder="At least 6 characters">
-                </div>
-
-                <button type="submit" class="btn btn-block">Create account</button>
-            </form>
-            <p id="registerMessage" class="message"></p>
-            
-            <div class="auth-footer">
-                <p>Already have an account? <a href="/login.html">Sign in</a></p>
+            <div class="input-group">
+                <label for="registerEmail">Email</label>
+                <input id="registerEmail" type="email" required placeholder="you@company.com">
             </div>
-        </section>
-    </main>
+
+            <div class="input-group">
+                <label for="registerPassword">Password</label>
+                <input id="registerPassword" type="password" minlength="6" required placeholder="••••••••">
+            </div>
+
+            <button type="submit" class="btn btn-block">Sign Up</button>
+            <p id="registerMessage" class="message"
+                style="color: var(--danger); font-size: 13px; text-align: center; margin: 0;"></p>
+        </form>
+
+        <div style="text-align: center; margin-top: 24px; font-size: 14px; color: #a1a1aa;">
+            Already have an account? <a href="/login.html"
+                style="color: #ffffff; text-decoration: none; font-weight: 500;">Sign in</a>
+        </div>
+    </div>
     <script src="/js/script.js"></script>
 </body>
+
 </html>
