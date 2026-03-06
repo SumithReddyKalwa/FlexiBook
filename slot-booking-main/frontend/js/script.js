@@ -8,8 +8,16 @@ function escapeHtml(text) {
 }
 
 function getPathname() {
-    const path = window.location.pathname;
-    return path === "/" ? "/index.html" : path;
+    let path = window.location.pathname;
+    if (path === "/") return "/index.html";
+
+    // Normalize path by removing trailing slashes
+    if (path.endsWith('/')) path = path.slice(0, -1);
+
+    // Append .html if missing (useful for Netlify pretty URLs)
+    if (!path.endsWith('.html')) path += '.html';
+
+    return path;
 }
 
 function getCurrentUser() {
