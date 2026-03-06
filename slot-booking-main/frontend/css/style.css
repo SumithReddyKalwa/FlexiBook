@@ -138,6 +138,8 @@ body {
 .avatar {
     width: 36px;
     height: 36px;
+    min-width: 36px;
+    min-height: 36px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--primary), #8b5cf6);
     display: flex;
@@ -146,6 +148,7 @@ body {
     font-weight: 600;
     font-size: 14px;
     color: white;
+    flex-shrink: 0;
 }
 
 .user-dropdown {
